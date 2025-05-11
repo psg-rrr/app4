@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>App de Salud</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="login-screen" class="login-screen">
+    <h2>Identifícate</h2>
+    <input type="text" id="nombre" placeholder="Nombre completo" />
+    <button onclick="guardarNombre()">Entrar</button>
+  </div>
+  <div id="bienvenida" class="bienvenida"></div>
+  <div class="container">
+    <nav class="sidebar">
+      <button id="button-upp" onclick="showTab('upp')">🩺 UPP</button>
+      <button id="button-nutricion" onclick="showTab('nutricion')">🍽 Nutrición</button>
+      <button id="button-hidratacion" onclick="showTab('hidratacion')">💧 Hidratación</button>
+      <button id="button-eliminacion" onclick="showTab('eliminacion')">🚽 Eliminación</button>
+      <button id="button-ejercicio" onclick="showTab('ejercicio')">🏃 Ejercicio</button>
+      <button id="button-farmacos" onclick="showTab('farmacos')">💊 Medicación</button>
+    </nav>
+    <main class="content">
+      <section id="upp" class="tab active">
+        <button onclick="showUpp()">1. Valorar estado</button>
+        <button onclick="showUppQuery()">2. Consulta con profesional</button>
+        <div id="uppStateContainer">
+          <h1>Estadios de las úlceras por presión</h1>
+          <!-- contenido omitido para brevedad -->
+        </div>
+        <div id="queryContainer">
+          <h1>Apariencia de riesgo</h1>
+          <!-- contenido omitido para brevedad -->
+        </div>
+      </section>
+      <section id="nutricion" class="tab">
+        <h2>Dieta semanal</h2>
+        <!-- contenido omitido para brevedad -->
+      </section>
+      <section id="hidratacion" class="tab">
+        <button class="button" onclick="addGlass()" >Añadir vaso de agua</button>
+        <h2>Vasos de agua hoy: <span id="agua-count">0</span> </h2>
+        <div class="glass-container" id="glass-container"></div>
+        <p id="agua-alerta"></p>
+      </section>
+      <section id="eliminacion" class="tab">
+        <button class="button" onclick="addWc()" >Añadir evento de eliminación</button>
+        <input type="number" min="0" id="eventML" placeholder="Añade los ml del evento">
+        <h2>Eventos registrados hoy: <span id="elim-count">0</span></h2>
+        <div class="wc-container" id="wc-container"></div>
+        <p id="elim-alerta"></p>
+      </section>
+      <section id="ejercicio" class="tab">
+        <h2>Entrenamiento diario</h2>
+        <p>Pasos: <span id="pasos">4500</span></p>
+        <p>Kcal estimadas: <span id="kcal">180</span></p>
+        <p>Kilómetros: <span id="km">3.2</span></p>
+        <div class="barra-container">
+          <div id="barra-progreso" class="barra"></div>
+        </div>
+      </section>
+      <section id="farmacos" class="tab">
+        <h2>Medicación diaria</h2>
+        <div class="calendario">
+          <div contenteditable class="hora">07:00 - Omeoprazol antes de desayunar</div>
+          <div contenteditable class="hora">13:00 - </div>
+          <div contenteditable class="hora">21:00 - </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
